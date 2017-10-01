@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class FooControl {
-    @Value("${foo}")
-    String foo;
-    @Value("${democonfigclient.message}")
-    String message;
+    @Value("${auth}")
+    String auth;
+    @Value("${appName}")
+    String appName;
 
     @GetMapping(value = "/foo")
     public String getValue(){
-        return "config client is running with: "+this.foo+", message :"+message;
+        return "config client is running with: "+this.auth+", message :"+appName;
     }
 
     @GetMapping(value = "/")

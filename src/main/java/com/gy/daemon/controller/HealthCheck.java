@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HealthCheck {
+
     @GetMapping(value = "/")
     public String healthState(){
         return "auto-test project is running stably";

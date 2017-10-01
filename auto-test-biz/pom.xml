@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gy.deamon</groupId>
-	<artifactId>eureka-client</artifactId>
+	<artifactId>auto-test-biz</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka-client</name>
-	<description>Eureka Client for Auto-Test Framework</description>
+	<name>auto-test-biz</name>
+	<description>Auto-Test Framework</description>
 
 	<parent>
 		<groupId>com.gy.daemon</groupId>
@@ -29,6 +29,11 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 
 		<dependency>

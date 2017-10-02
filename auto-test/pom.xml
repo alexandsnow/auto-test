@@ -25,10 +25,11 @@
 	</properties>
 
 	<modules>
-		<module>../config-client</module>
-		<module>../config-server</module>
+        <module>../auto-test-lib</module>
 		<module>../eureka-server</module>
-		<module>../auto-test-biz</module>
+		<module>../config-server</module>
+		<module>../auto-test-backend</module>
+		<module>../auto-test-portal</module>
 	</modules>
 
 	<dependencyManagement>
@@ -45,7 +46,19 @@
 
 	<dependencies>
 
-		<dependency>
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.codec</artifactId>
+            <version>1.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.directory.studio</groupId>
+            <artifactId>org.apache.commons.io</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gy.daemon.dao.UserDao" >
+  <resultMap id="BaseResultMap" type="com.gy.daemon.dto.db.UserEntity" >
+    <id column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="user_cname" property="userCname" jdbcType="VARCHAR" />
+    <result column="user_ename" property="userEname" jdbcType="VARCHAR" />
+    <result column="user_group" property="userGroup" jdbcType="VARCHAR" />
+    <result column="user_role" property="userRole" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    uid, user_cname, user_ename, user_group, user_role
+  </sql>
+
+  <select id="queryUserByUid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from auto_test_user
+    where uid = #{uid,jdbcType=INTEGER}
+  </select>
+
+</mapper>

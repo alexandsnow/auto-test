@@ -1,6 +1,7 @@
 package com.gy.daemon.portal.controller;
 
 import com.gy.daemon.lib.common.base.BaseResponse;
+import com.gy.daemon.portal.annotaion.Api;
 import com.gy.daemon.portal.dto.TestCaseBaseDto;
 import com.gy.daemon.lib.common.statecode.ServiceCode;
 import com.gy.daemon.portal.service.TestCaseService;
@@ -44,6 +45,7 @@ public class TestCaseController {
     }
 
     @PostMapping(value="/")
+    @Api(value = "createTc",desc = "创建一个TestCase")
     public BaseResponse<?> createTc(@RequestBody TcInfoEntity tcInfoEntity){
         logger.info("TestCaseController createTc begin");
         BaseResponse<TestCaseBaseDto> response=null;
@@ -64,6 +66,7 @@ public class TestCaseController {
     }
 
     @DeleteMapping(value="/{tcId}")
+    @Api(value="deleteTc",desc = "删除TestCase")
     public BaseResponse<?> deleteTc(@PathVariable("tcId")String tcId){
         logger.info("TestCaseController deleteTc begin");
         BaseResponse<List<TestCaseBaseDto>> response=null;

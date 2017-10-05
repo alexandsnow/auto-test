@@ -1,4 +1,4 @@
-package com.gy.daemon.portal.util;
+package com.gy.daemon.lib.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,6 +16,9 @@ public class DateUtil {
     public static final SimpleDateFormat SIMPLE_DATE_FORMAT_DATE = new SimpleDateFormat(FORMAT_DATE);
 
     public static String dateToString(Date date,String formatStr){
+        if(date == null){
+            return "--";
+        }
         String result=null;
         if(formatStr == null){
             result = SIMPLE_DATE_FORMAT_FULL.format(date);
@@ -24,6 +27,11 @@ public class DateUtil {
             result = format.format(date);
         }
         return result;
+    }
+
+    public static String longDateToString(long longDate,String formatStr){
+        Date date = new Date(longDate);
+        return dateToString(date,formatStr);
     }
 
     public static Date stringToDate(String dateStr,String formatStr) throws ParseException{
@@ -40,4 +48,6 @@ public class DateUtil {
         }
         return result;
     }
+
+
 }

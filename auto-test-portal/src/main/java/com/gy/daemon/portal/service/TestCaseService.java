@@ -1,6 +1,7 @@
 package com.gy.daemon.portal.service;
 
-import com.gy.daemon.lib.common.base.TestCaseBaseDto;
+import com.gy.daemon.portal.dto.TestCaseBaseDto;
+import com.gy.daemon.portal.service.feignService.feignDto.TcInfoEntity;
 
 import java.util.List;
 
@@ -13,4 +14,8 @@ public interface TestCaseService {
     List<TestCaseBaseDto> getTestCaseByAppId(String appId);
 
     TestCaseBaseDto getTestCaseById();
+
+    TestCaseBaseDto createTc(TcInfoEntity tcInfoEntity) throws Exception;
+
+    void deleteTestCaseById(String tcId) throws Exception;
 }

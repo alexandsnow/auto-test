@@ -6,13 +6,9 @@ import java.util.List;
 
 public interface TcInfoDao {
 
-
-
-
-
     List<TcInfoEntity> queryTcByAppId(String appId);
 
-    TcInfoEntity queryTcByTcId(Integer tcId);
+    TcInfoEntity queryTcByTcId(String tcId);
 
     List<TcInfoEntity> queryAllTc();
 
@@ -20,5 +16,5 @@ public interface TcInfoDao {
 
     int updateByTcId(TcInfoEntity record);
 
-    int deleteByTcId(Integer id);
+    int deleteByTcId(String id);
 }

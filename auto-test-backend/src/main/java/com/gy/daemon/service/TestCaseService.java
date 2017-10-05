@@ -18,10 +18,12 @@ public interface TestCaseService{
 
     List<TcInfoEntity> getTestCaseByAppId(String appId) throws Exception;
 
-    TcInfoEntity getTestCaseByTcId(Integer tcId) throws Exception;
+    TcInfoEntity getTestCaseByTcId(String tcId) throws Exception;
 
-    int insertTc(TcInfoEntity tcInfoEntity) throws Exception;
+    TcInfoEntity insertTc(TcInfoEntity tcInfoEntity) throws Exception;
 
-    int updateTc(TcInfoEntity tcInfoEntity) throws Exception;
+    TcInfoEntity updateTc(TcInfoEntity tcInfoEntity) throws Exception;
+
+    int deleteTC(String tcId) throws Exception;
 
 }

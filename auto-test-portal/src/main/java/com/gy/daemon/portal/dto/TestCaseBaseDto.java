@@ -1,4 +1,4 @@
-package com.gy.daemon.lib.common.base;
+package com.gy.daemon.portal.dto;
 
 /**
  * Created by yang_gao on 2017/10/4.
@@ -14,6 +14,9 @@ public class TestCaseBaseDto {
     String testTime;
     String isPass;
     String createTime;
+    String url;
+    String method;
+    String param;
 
     public String getApiName() {
         return apiName;
@@ -87,6 +90,30 @@ public class TestCaseBaseDto {
         this.createTime = createTime;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public String getParam() {
+        return param;
+    }
+
+    public void setParam(String param) {
+        this.param = param;
+    }
+
     @Override
     public String toString() {
         return "TestCaseBaseDto{" +
@@ -99,6 +126,9 @@ public class TestCaseBaseDto {
                 ", testTime='" + testTime + '\'' +
                 ", isPass='" + isPass + '\'' +
                 ", createTime='" + createTime + '\'' +
+                ", url='" + url + '\'' +
+                ", method='" + method + '\'' +
+                ", param='" + param + '\'' +
                 '}';
     }
 }

@@ -3,7 +3,7 @@ package com.gy.daemon.dto.db;
 import java.util.Date;
 
 public class TcInfoEntity {
-    private Integer id;
+    private String id;
 
     private String tcName;
 
@@ -15,6 +15,8 @@ public class TcInfoEntity {
 
     private String method;
 
+    private String url;
+
     private Date createTime;
 
     private Date modifyTime;
@@ -25,11 +27,11 @@ public class TcInfoEntity {
 
     private Integer state;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,6 +73,14 @@ public class TcInfoEntity {
 
     public void setMethod(String method) {
         this.method = method == null ? null : method.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Date getCreateTime() {

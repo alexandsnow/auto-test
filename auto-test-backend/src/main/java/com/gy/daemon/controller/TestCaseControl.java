@@ -51,7 +51,7 @@ public class TestCaseControl {
         return response;
     }
     @GetMapping(value="/{tcId}")
-    public BaseResponse<?> getTcByTcId(@PathVariable("tcId")Integer tcId){
+    public BaseResponse<?> getTcByTcId(@PathVariable("tcId")String tcId){
         BaseResponse<TcInfoEntity> response = null;
         TcInfoEntity responseBody = null;
         try {
@@ -65,10 +65,10 @@ public class TestCaseControl {
     }
     @PostMapping(value="/")
     public BaseResponse<?> createTc(@RequestBody TcInfoEntity tcInfoEntity){
-        BaseResponse<String> response = null;
+        BaseResponse<TcInfoEntity> response = null;
         try {
-            testCaseService.insertTc(tcInfoEntity);
-            response = new BaseResponse<>(ServiceCode.SUCCESS,null);
+            tcInfoEntity = testCaseService.insertTc(tcInfoEntity);
+            response = new BaseResponse<>(ServiceCode.SUCCESS,tcInfoEntity);
         } catch (Exception e) {
             logger.error("TestCaseControl createTc catch exception: "+e.getMessage(),e);
             response = new BaseResponse<>(ServiceCode.DB_OPERATION_ERROR_INSERT,null);
@@ -78,12 +78,25 @@ public class TestCaseControl {
 
     @PutMapping(value="/")
     public BaseResponse<?> updateTc(@RequestBody TcInfoEntity tcInfoEntity){
-        BaseResponse<String> response = null;
+        BaseResponse<TcInfoEntity> response = null;
         try {
-            testCaseService.updateTc(tcInfoEntity);
-            response = new BaseResponse<>(ServiceCode.SUCCESS,null);
+            tcInfoEntity = testCaseService.updateTc(tcInfoEntity);
+            response = new BaseResponse<>(ServiceCode.SUCCESS,tcInfoEntity);
         } catch (Exception e) {
             logger.error("TestCaseControl createTc catch exception: "+e.getMessage(),e);
+            response = new BaseResponse<>(ServiceCode.DB_OPERATION_ERROR_UPDATE,null);
+        }
+        return response;
+    }
+
+    @DeleteMapping(value="/{tcId}")
+    public BaseResponse<?> deleteTc(@PathVariable("tcId")String tcId){
+        BaseResponse<TcInfoEntity> response = null;
+        try {
+            testCaseService.deleteTC(tcId);
+            response = new BaseResponse<>(ServiceCode.SUCCESS,null);
+        } catch (Exception e) {
+            logger.error("TestCaseControl deleteTc catch exception: "+e.getMessage(),e);
             response = new BaseResponse<>(ServiceCode.DB_OPERATION_ERROR_UPDATE,null);
         }
         return response;

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gy.daemon.dao.TcInfoDao" >
+  <resultMap id="tcInfoEntity" type="com.gy.daemon.dto.db.TcInfoEntity" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="tc_name" property="tcName" jdbcType="VARCHAR" />
+    <result column="app_id" property="appId" jdbcType="VARCHAR" />
+    <result column="app_name" property="appName" jdbcType="VARCHAR" />
+    <result column="api_name" property="apiName" jdbcType="VARCHAR" />
+    <result column="method" property="method" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="param" property="param" jdbcType="VARCHAR" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, tc_name, app_id, app_name, api_name, method, url, create_time, modify_time, param, created_by,
+    state
+  </sql>
+
+  <select id="queryAllTc" resultMap="tcInfoEntity">
+    select
+    <include refid="Base_Column_List" />
+    from auto_test_testcase_info
+  </select>
+
+  <select id="queryTcByTcId" resultMap="tcInfoEntity" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from auto_test_testcase_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryTcByAppId" resultMap="tcInfoEntity" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from auto_test_testcase_info
+    where app_id = #{appId,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insert" parameterType="com.gy.daemon.dto.db.TcInfoEntity" >
+    insert into auto_test_testcase_info (id, tc_name, app_id, app_name,
+      api_name, method,url, create_time,
+      modify_time, param, created_by,
+      state)
+    values (#{id,jdbcType=INTEGER}, #{tcName,jdbcType=VARCHAR}, #{appId,jdbcType=VARCHAR}, #{appName,jdbcType=VARCHAR},
+      #{apiName,jdbcType=VARCHAR}, #{method,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{modifyTime,jdbcType=TIMESTAMP}, #{param,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateByTcId" parameterType="com.gy.daemon.dto.db.TcInfoEntity" >
+    update auto_test_testcase_info
+    set tc_name = #{tcName,jdbcType=VARCHAR},
+      app_id = #{appId,jdbcType=VARCHAR},
+      app_name = #{appName,jdbcType=VARCHAR},
+      api_name = #{apiName,jdbcType=VARCHAR},
+      method = #{method,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      param = #{param,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteByTcId" parameterType="java.lang.String" >
+    delete from auto_test_testcase_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+</mapper>

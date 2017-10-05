@@ -9,7 +9,7 @@
     <relativePath>../auto-test/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.gy.deamon.lib</groupId>
+  <groupId>com.gy.daemon.lib</groupId>
   <artifactId>auto-test-lib</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>

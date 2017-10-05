@@ -12,3 +12,12 @@ spring:
       label: master
       profile: dev
       uri: http:localhost:8888/
+  datasource:
+      name: auto-test-datasource
+      url: jdbc:mysql://47.95.123.48:3306/auto_test?useSSL=false
+      username: root
+      password: gaoyang
+      driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  config-locations: classpath:mybatis-config.xml

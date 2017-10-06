@@ -5,8 +5,8 @@ import com.gy.daemon.lib.common.statecode.ServiceCode;
 import com.gy.daemon.portal.annotaion.Api;
 import com.gy.daemon.portal.annotaion.ApiInfo;
 import com.gy.daemon.portal.util.ApiInfoContainer;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,12 +17,14 @@ import java.util.List;
  */
 
 @RestController
+@CrossOrigin(value = "*")
 public class HealthController {
 
     @Autowired
-    ApiInfoContainer apiInfoContainer;
+    private ApiInfoContainer apiInfoContainer;
 
     @GetMapping(value="/info")
+    @Api(value="welcome",desc = "检查心跳")
     public String welcome(){
         return "Auto-Test-Portal is running stably!";
     }

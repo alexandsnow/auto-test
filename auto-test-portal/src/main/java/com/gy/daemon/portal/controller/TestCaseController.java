@@ -30,6 +30,7 @@ public class TestCaseController {
 
 
     @GetMapping(value="/")
+    @Api(value = "getTcList",desc = "获取所有的TestCase")
     public BaseResponse<?> getTcList(){
         logger.info("TestCaseController getTcList begin");
         BaseResponse<List<TestCaseBaseDto>> response=null;

@@ -108,7 +108,6 @@ public class ApiInfoContainer implements ApplicationListener<ContextRefreshedEve
 
     }
 
-
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         RUN_TIMES++;

@@ -36,10 +36,10 @@ public class GUserDetailService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(String.format("User with the username %s doesn't exist", userName));
         }
+        // 权限分配
         if (user.getAdmin().equals(YES)) {
             authorityList = AuthorityUtils.createAuthorityList("ROLE_ADMIN");
         }
-        UserDetails userDetails = new User(user.getUsername(), user.getPassword(), authorityList);
-        return userDetails;
+        return new User(user.getUsername(), user.getPassword(), authorityList);
     }
 }

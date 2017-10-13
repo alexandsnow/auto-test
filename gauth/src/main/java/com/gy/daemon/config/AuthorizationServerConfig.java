@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 
 /**
  * Created by yang_gao on 2017/10/12.
+ * OAuth Configurer
  */
 
 
@@ -34,4 +35,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read","write")
                 .resourceIds("gauth_resource");
     }
+
+
 }

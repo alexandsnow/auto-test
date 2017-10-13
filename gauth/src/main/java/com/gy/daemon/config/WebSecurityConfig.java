@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * Created by yang_gao on 2017/10/11.
+ * Basic Authentication configurer
  */
 
 @Configuration
@@ -26,6 +27,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private GUserDetailService gUserDetailService;
 
+
+    /**
+     * Inject an Authentication Manager
+     * @return Authentication Manager Bean
+     * @throws Exception
+     */
     @Override
     @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
@@ -43,12 +50,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
 
-
     /**
      * Specify the URI that should be secured or unsecured
      * @param http
      * @throws Exception
      */
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
